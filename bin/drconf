@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby -Ilib
+
+require "drconf"
+
+# Go ahead and run the root command
+DrConf::Command::RootCommand.run
