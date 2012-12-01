@@ -47,6 +47,11 @@ module DrConf
     # Root command for drconf
     class RootCommand < Clamp::Command
 
+      option ["--version", "-v"], :flag, "Show current version" do
+        puts "DrConf #{DrConf::VERSION} #{DrConf::COPYRIGHT}"
+        exit(0)
+      end
+
       subcommand "init", "Initalize a new repo to store config files in, or clone one", InitCommand
       subcommand "list", "List all repos", ListCommand
       subcommand "sync", "Pull down the latest changes from a repo", SyncCommand
