@@ -22,6 +22,15 @@ drconf init --remote git@github.com:foo/bar.git company
 
 Here we're managing two repos, one for personal files and another for company files.
 
+### List (`drconf list`)
+
+List all repos drconf is aware of.
+
+**Examples:**
+```bash
+drconf list
+```
+
 ### Include (`drconf include {PATH} {REPO_NAME}`)
 
 To add a file (or directory) you have locally, but that **isn't** stored in a repository you can use the include command. This will add the local path to the repository specified. If you want to place the given path in a different location in the repository, you can do that with the `--alias` option.
@@ -36,7 +45,7 @@ In the first example we're simply including the nginx configuration file in the 
 
 When including a file, it will automatically watch it. Read below to understand the concept of watching. You can specify `--no-watch` to skip this step.
 
-### Watch (`drconf watch {PATH} {REPO_PATH}`)
+### Watch (`drconf watch {PATH} {REPO_NAME}`)
 
 The concept of watching a file is faily simple, it's simply telling drconf that you want to sync a path from a repository to your local machine. If the file exists locally, you are required to remove it first.
 
@@ -57,7 +66,7 @@ If you want to un-watch a file it's as simple as using the `unwatch` command and
 drconf unwatch ~/.bash_profile
 ```
 
-### Sync (`drconf sync`)
+### Sync (`drconf sync {REPO_NAME}`)
 
 To keep your watched files in sync with the drconf repo, you use the sync command. Here's a brief overview of the behavior;
 
@@ -66,3 +75,11 @@ To keep your watched files in sync with the drconf repo, you use the sync comman
 - If you have local changes and there are remove changes, you must first revert the file so it is unchanged, sync, then apply your changes.
 
 If you have lots of machines and frequent changes to the same files I find it's easier to edit and commit the files to a seperately cloned version of the repo manually, this way you can correctly solve conflicts.
+
+**Examples:**
+```bash
+drconf sync personal
+drconf sync company
+```
+
+In the examples above we sync both the personal and company repos.

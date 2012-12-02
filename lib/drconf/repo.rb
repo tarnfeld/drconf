@@ -53,5 +53,25 @@ module DrConf
 
       @git_repo.checkout(ref)
     end
+
+    def remove!
+      FileUtils.rm_rf @path
+
+      @exists = false
+      @git_repo = nil
+    end
+
+    def includes? path
+      path = Path.new(path)
+      path.exists?
+    end
+
+    def to_s
+      if !@exists
+        return "#{@name}[new]"
+      else
+        return "#{@name}[#{@git_repo.branch}]"
+      end
+    end
   end
 end

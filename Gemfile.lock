@@ -3,7 +3,8 @@ GEM
   specs:
     clamp (0.5.0)
     git (1.2.5)
-    ya2yaml (0.31)
+    highline (1.6.15)
+    rainbow (1.1.4)
 
 PLATFORMS
   ruby
@@ -11,4 +12,5 @@ PLATFORMS
 DEPENDENCIES
   clamp (= 0.5.0)
   git (= 1.2.5)
-  ya2yaml (= 0.31)
+  highline (= 1.6.15)
+  rainbow (= 1.1.4)
